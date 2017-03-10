@@ -1,2 +1,2 @@
-##Blog
-Initial blog post from git
+h1. Welcome 
+This is left blank for now. 
