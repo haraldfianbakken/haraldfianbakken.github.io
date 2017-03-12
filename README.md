@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Welcome to text.fianbakken.com
 ---
 <h1>Test</h1>
