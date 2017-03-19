@@ -1,15 +1,10 @@
-theme: jekyll-theme-leap-day 
-comments: true
-# other options
-title: text.fianbakken.com
-description: 'Rants about dev-stuff and other stuff.'
-url: http://text.fianbakken.com
-date_format: '%B %d, %Y'
-fort_awesome_icon: 'cog fa-spin'
-
-# Owner configuration
-# name and email are required (change code to remove these)
-# (leave the rest blank to disable the corresponding sharing button)
+# Site settings
+title: Fianbakken [dot] com
+description: A developers rants, fairytales and other comments on life.
+keywords: Developer, Azure, Cloud, dotnet
+author: Harald Fianbakken
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://text.fianbakken.com/" # the base hostname & protocol for your site
 owner:
     name: Harald Fianbakken
     email: harald.fianbakken "at" gm[ail][dot]com
@@ -34,19 +29,6 @@ disqus_shortname: 'textfianbakken'
 # Jekyll configuration
 permalink: /:year/:month/:day/:title/
 paginate: 8
-
-# Markdown
-highlighter: rouge
-
-# Enable when using kramdown (you will need to use ~~~ instead of ```)
-# kramdown:
-#   auto_ids: true
-#   footnote_nr: 1
-#   entity_output: as_char
-#   toc_levels: 1..6
-#   use_coderay: false
-
-# Gems
 gems: ['jekyll-paginate']
 
 # Exclude

@@ -1,77 +1,89 @@
 ---
-layout: default
+layout: compress
 ---
-{% for post in paginator.posts %}
-<div class="post-index">
-    <div class="post-image">
-        <a href="{{ site.url }}{{ post.url }}">
-            {% if post.logo %}
-              <i class="fa fa-{{ post.logo }} fa-fw"></i>
-            {% else %}
-              <i class="fa fa-question-circle fa-fw"></i>
-            {% endif %}
-        </a>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}"/>
+    <meta name="keywords" content="{{ site.keywords }}"/>
+    <meta name="author" content="{{ site.author }}"/>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="css/modern-blog.css"/>
+    <!--[if IE]>
+    <script type="text/javascript" src="js/vendors/html5.min.js"></script>
+    <![endif]-->
+    <script>
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            var root = document.getElementsByTagName('html')[0];
+            root.setAttribute('class', 'ff');
+        }
+    </script>
+</head>
+<body class="body">
+<div class="container">
+    <header class="header">
+        <h1>Fianbakken.com Blog<span>Developers fairytales and more!</span></h1>
+        <nav class="links">
+            <a href="#"><i class="fa fa-twitter-square fa-3x"></i></a>
+            <a href="#"><i class="fa fa-instagram fa-3x"></i></a>
+            <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
+            <a href="#"><i class="fa fa-tumblr-square fa-3x"></i></a>
+        </nav>
+    </header>
+    <div class="content">
+        <!-- trianglify pattern container -->
+        <div class="pattern pattern--hidden"></div>
+        <!-- cards -->
+        <div class="wrapper">
+            {% for post in site.posts %}
+            <div class="card" data-id="{{ post.id }}">
+                <div class="card__container card__container--closed">
+                    <svg class="card__image" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1200"
+                         preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <clipPath id="{{ post.id }}-clip-path">
+                                <polygon class="clip" points="0,1200 0,0 1920,0 1920,1200"></polygon>
+                            </clipPath>
+                        </defs>
+                        <image clip-path="url(#{{ post.id }}-clip-path)" width="1920" height="1200"
+                               xlink:href="{{ post.image }}"></image>
+                    </svg>
+                    <div class="card__content">
+                        <i class="card__btn-close fa fa-times"></i>
+                        <div class="card__caption">
+                            <h2 class="card__title">{{ post.title }}</h2>
+                            <p class="card__subtitle">{{ post.subtitle }}</p>
+                        </div>
+                        <div class="card__copy">
+                            <div class="meta">
+                                <img class="meta__avatar" src="{{ post.avatar }}"/>
+                                <span class="meta__author">{{ post.author }}</span>
+                                <span class="meta__date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                            </div>
+                            {{ post.content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- /cards -->
+        </div>
     </div>
-    <div class="post-content">
-        <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-        <p>
-            {% if post.summary %}
-                <span class="excerpt">{{ post.summary }}</span>
-            {% else %}
-                <span class="excerpt">{{ post.excerpt | strip_html | truncatewords: 20}}</span>
-            {% endif %}
-        </p>
-        <p class="post-detail">
-            {{ post.date | date: site.date_format }}
-            {% if site.disqus_shortname %}
-              &middot;
-              <a href="{{ site.url }}{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
-              {% if post.update_date %}
-                &middot;
-                Updated {{ post.update_date | date: site.date_format }}
-              {% endif %}
-            {% endif %}
-        </p>
-    </div>
+    <!-- /container -->
 </div>
-{% endfor %}
-
-
-<!-- Pagination links -->
-<div class="pagination">
-  <ul>
-      <li class="page-prev">
-          {% if paginator.previous_page %}
-              <a href="{{ site.url }}{{ paginator.previous_page_path }}">Prev</a>
-          {% else %}
-              <span class="disabled">Prev</span>
-          {% endif %}
-      </li>
-      <li>
-          <span class="current">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-      </li>
-      <li class="page-next">
-          {% if paginator.next_page %}
-              <a href="{{ site.url }}{{ paginator.next_page_path }}">Next</a></li>
-          {% else %}
-              <span class="disabled">Next</span>
-          {% endif %}
-      </li>
-  </ul>
-</div>
-
-<!-- Add Disqus comment count (not the comments) -->
-{% if site.disqus_shortname %}
-<script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname  = '{{ site.disqus_shortname }}';
-  // var disqus_developer = 1; // Comment out when the site is live
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
-</script>
-{% endif %}
+<!-- JS -->
+<script src="js/vendors/trianglify.min.js"></script>
+<script src="js/vendors/TweenMax.min.js"></script>
+<script src="js/vendors/ScrollToPlugin.min.js"></script>
+<script src="js/vendors/cash.min.js"></script>
+<script src="js/card-modern-blog.js"></script>
+<script src="js/modern-blog.js"></script>
+</body>
+</html>
