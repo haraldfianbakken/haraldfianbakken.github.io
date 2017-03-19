@@ -27,9 +27,11 @@ comments: true
 disqus_shortname: 'textfianbakken'
 
 # Jekyll configuration
-permalink: /:year/:month/:day/:title/
-paginate: 8
-gems: ['jekyll-paginate']
+permalink: pretty
+markdown: kramdown
+highlighter: pygments
+paginate: 5
+gems: ['jekyll-paginate', 'jekyll-sitemap']
 
 # Exclude
 exclude: ['README.md']
