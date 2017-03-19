@@ -2,7 +2,7 @@
 title: Fianbakken [dot] com
 description: A developers rants, fairytales and other comments on life.
 keywords: Developer, Azure, Cloud, dotnet
-author: Harald Fianbakken
+author: Harald S. Fianbakken
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://text.fianbakken.com/" # the base hostname & protocol for your site
 owner:
