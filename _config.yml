@@ -22,8 +22,8 @@ sharing:
     facebook: true
     google_plus: true
     reddit: true
-
-# Disqus comments configuration (leave blank to disable comments)
+    
+comments: true
 disqus_shortname: 'textfianbakken'
 
 # Jekyll configuration
