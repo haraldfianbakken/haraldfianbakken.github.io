@@ -1,4 +1,58 @@
-theme: jekyll-theme-leap-day
-title: text.fianbakken.com
+theme: jekyll-theme-leap-day 
 comments: true
 # other options
+title: text.fianbakken.com
+description: 'Rants about dev-stuff and other stuff.'
+url: http://text.fianbakken.com
+date_format: '%B %d, %Y'
+fort_awesome_icon: 'cog fa-spin'
+
+# Owner configuration
+# name and email are required (change code to remove these)
+# (leave the rest blank to disable the corresponding sharing button)
+owner:
+    name: Harald Fianbakken
+    email: harald.fianbakken "at" gm[ail][dot]com
+    github: haraldfianbakken
+    twitter: Cmdrtchort
+    linkedin: haraldfianbakken
+    facebook:
+    google_plus:
+    youtube:
+
+# Post sharing icons
+sharing:
+    twitter: true
+    linkedin: true
+    facebook: true
+    google_plus: true
+    reddit: true
+
+# Disqus comments configuration (leave blank to disable comments)
+disqus_shortname: 'textfianbakken'
+
+# Jekyll configuration
+permalink: /:year/:month/:day/:title/
+paginate: 8
+
+# Markdown
+markdown: redcarpet
+highlighter: rouge
+
+# Enable when using redcarpet
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data', 'footnotes']
+
+# Enable when using kramdown (you will need to use ~~~ instead of ```)
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   use_coderay: false
+
+# Gems
+gems: ['jekyll-paginate']
+
+# Exclude
+exclude: ['README.md']
