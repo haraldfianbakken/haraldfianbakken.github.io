@@ -16,7 +16,64 @@ layout: compress
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css" href="css/modern-blog.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
-    
+    <meta content="your_facebook_app_id" property="fb:app_id">
+<meta content="{{ site.title }}" property="og:site_name">
+{% if page.title %}
+  <meta content="{{ page.title }}" property="og:title">
+{% else %}
+  <meta content="{{ site.title }}" property="og:title">
+{% endif %}
+{% if page.title %}
+  <meta content="article" property="og:type">
+{% else %}
+  <meta content="website" property="og:type">
+{% endif %}
+{% if page.description %}
+  <meta content="{{ page.description }}" property="og:description">
+{% else %}
+  <meta content="{{ site.description }}" property="og:description">
+{% endif %}
+{% if page.url %}
+  <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+{% endif %}
+{% if page.date %}
+  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+  <meta content="{{ site.url }}/about/" property="article:author">
+{% endif %}
+{% if page.image %}
+  <meta content="/img/posts/{{ page.image }}" property="og:image">
+{% else %}
+  <meta content="/img/logo-high-resolution.png" property="og:image">
+{% endif %}
+{% if page.categories %}
+  {% for category in page.categories limit:1 %}
+  <meta content="{{ category }}" property="article:section">
+  {% endfor %}
+{% endif %}
+{% if page.tags %}
+  {% for tag in page.tags %}
+  <meta content="{{ tag }}" property="article:tag">
+  {% endfor %}
+{% endif %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@CmdrTchort">
+<meta name="twitter:creator" content="@CmdrTchort">
+{% if page.title %}
+  <meta name="twitter:title" content="{{ page.title }}">
+{% else %}
+  <meta name="twitter:title" content="{{ site.title }}">
+{% endif %}
+{% if page.url %}
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+{% endif %}
+{% if page.description %}
+  <meta name="twitter:description" content="{{ page.description }}">
+{% else %}
+  <meta name="twitter:description" content="{{ site.description }}">
+{% endif %}
+{% if page.header-img %}
+  <meta name="twitter:image:src" content="{{ site.url }}/{{ page.header-img }}">
+{% endif %}
     <!--[if IE]>
     <script type="text/javascript" src="js/vendors/html5.min.js"></script>
     <![endif]-->
@@ -26,6 +83,14 @@ layout: compress
             root.setAttribute('class', 'ff');
         }
     </script>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=124878228044908";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body class="body">
 <div class="container">
@@ -100,11 +165,18 @@ layout: compress
                                 <img class="meta__avatar" src="{{ post.avatar }}"/>
                                 <span class="meta__author">{{ post.author }}</span>
                                 <span class="meta__date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                                <div class="fb-share-button" data-href="{{site.url}}{{post.url}}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+                                    Share                                    
+
+                                </div>
+                                
                             </div>
                             {{ post.content }}
                         </div>
                         <div class="card__footer">
                             {% if post.comments %} 
+                                                        <h3>Comments</h3>
+
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function () {
