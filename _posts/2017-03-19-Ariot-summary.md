@@ -1,6 +1,7 @@
 ---
 title: Ariot
 subtitle: The arctic IoT hackathon
+layout: post
 author: Harald S. Fianbakken
 date: 2017-03-19 12:00
 comments: true
