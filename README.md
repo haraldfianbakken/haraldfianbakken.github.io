@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Welcome to my blog
 date: 2017-03-19 03:15
 comments: true
