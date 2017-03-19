@@ -18,7 +18,13 @@
       <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
-        <div id="logo"></div>
+        <div id="logo">
+           {% if page.logo %}
+            <i class="fa fa-{{ page.logo }} fa-fw"></i>
+          {% else %}
+            <i class="fa fa-question-circle fa-fw"></i>
+          {% endif %}
+        </div>
       </header>
 
     <div class="wrapper">
