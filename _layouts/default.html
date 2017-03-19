@@ -40,8 +40,9 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:site_name" content="{{ site.title | strip_html | xml_escape }}">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ site.url }}/css/trio.css">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" media="screen" type="text/css">
+    <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}" media="print" type="text/css">
+
 
     <!-- Social buttons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -103,11 +104,6 @@
     </ul>
 
     <div class="footer-secondary-links">
-      <ul>
-        <li>Powered by <a href="http://jekyllrb.com/">Jekyll</a>
-        using the <a href="{{ site.url }}">Trio</a> theme
-        </li>
-      </ul>
 
       <ul class="footer-social">
         <li><a href="{{ site.url }}/feed.xml">
