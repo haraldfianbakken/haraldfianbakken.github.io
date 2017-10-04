@@ -10,4 +10,4 @@ header-img: "img/Hackathon.jpg"
 layout: post
 ---
 
-Hello world
+The event was a great success. Cool stuff were made! You should see some of the amazing things that came up in a few days! 
