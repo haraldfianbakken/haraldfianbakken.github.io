@@ -36,8 +36,30 @@ Use your vstscontoso account name and the PAT token generated in the previous st
 ```
 You're good to go to start automating! 
 
+### Automate the process
+To avoid doing this on every run / console, you would most likely want to add this to your profile. You could consider protecting your key somewhere safe as well (but for simplicity, showing you how in the profile)
+```
+    "
+Add-TeamAccount -Account 'vstscontoso' -PersonalAccessToken 'TOKEN_FROM_PREVIOUS_STEP'" | Add-Content $Profile.CurrentUserAllHosts -Force
+```
+
 ### Get team projects
 ```
     Get-Project
 ```
+
+### Create new project
+To create a new team project (with defaults - e.g. GIT and agile template)
+```
+p = Add-project -Name 'Beerly-Serverless' -Description 'Serverless hackathon'
+``` 
+
+### Checkout project
+```
+    $repo = Get-GitRepository -ProjectName $p.Name
+    git clone $repo.RemoteUrl
+```
+
+Of course, you could also to all of this in one line if you're a "one liner".
+
 
